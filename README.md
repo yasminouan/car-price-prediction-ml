@@ -1,12 +1,13 @@
 # Prédiction de Prix de Voitures d'Occasion 🚗
 
 Projet d'apprentissage du Machine Learning : prédire le prix de revente d'une voiture
-d'occasion à partir de ses caractéristiques (année, kilométrage, carburant, etc.)
+d'occasion à partir de ses caractéristiques (année, kilométrage, carburant, etc.),
+avec une interface web pour tester le modèle.
 
 ## Objectif
 Ce projet m'a permis d'apprendre le workflow complet d'un problème de régression en ML :
 exploration des données, nettoyage, encodage des variables catégorielles, entraînement
-et évaluation de modèles.
+et évaluation de modèles, puis déploiement via une interface interactive.
 
 ## Étapes réalisées
 1. Chargement et exploration des données (`pandas`)
@@ -17,6 +18,7 @@ et évaluation de modèles.
 5. Entraînement d'un modèle Random Forest
 6. Évaluation avec MAE et R²
 7. Sauvegarde du modèle entraîné (`joblib`)
+8. Interface web interactive avec Streamlit pour tester des prédictions en direct
 
 ## Résultat
 **R² = 0.98** — le modèle explique 98% des variations de prix de vente.
@@ -29,8 +31,26 @@ de ce dataset étaient générés sans corrélation réaliste avec les autres va
 exploitable — il faut aussi vérifier qu'il contient un vrai signal statistique
 avant d'investir du temps dans la modélisation.
 
+## Comment lancer l'appli en local
+
+Le fichier `car_price_model.pkl` n'est pas inclus dans ce repo (trop volumineux
+pour GitHub). Pour tester l'appli :
+
+1. Cloner ce repo
+2. Ouvrir `Untitled0.ipynb` sur Google Colab et exécuter toutes les cellules pour
+   régénérer `car_price_model.pkl`
+3. Télécharger ce fichier et le placer dans le même dossier que `app.py`
+4. Installer les dépendances :
+
+pip install streamlit joblib pandas scikit-learn
+
+5. Lancer l'appli :
+
+streamlit run app.py
+
+
 ## Données
 [Vehicle dataset (CarDekho), Kaggle](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho)
 
 ## Stack
-Python, pandas, scikit-learn, Google Colab
+Python, pandas, scikit-learn, Streamlit, Google Colab
